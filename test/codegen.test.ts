@@ -48,7 +48,9 @@ describe("generate", () => {
 
   test("emits a typed schema", () => {
     const schema = files["schema.d.ts"] as string;
-    expect(schema).toContain('import type { MessageSchema } from "to18ml"');
+    expect(schema).toContain(
+      'import type { MessageSchema } from "@mcbalaam/to18ml"',
+    );
     expect(schema).toContain('| "master.welcome"');
     expect(schema).toContain('"comments.greet": { name: string | number };');
     expect(schema).toContain('"cart.items": { count: number };');

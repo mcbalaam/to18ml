@@ -2,6 +2,9 @@ import { placeholdersOf } from "../core/interpolate";
 import { isPlural } from "../core/plural";
 import type { FlatMessages } from "../core/types";
 
+/** Package specifier used in generated imports when none is configured. */
+export const DEFAULT_PACKAGE_NAME = "@mcbalaam/to18ml";
+
 export interface CodegenOptions {
   /** Locale whose structure is authoritative. */
   defaultLocale: string;
@@ -257,7 +260,7 @@ export function generate(
 ): GeneratedFiles {
   const resolved = {
     defaultLocale: options.defaultLocale,
-    packageName: options.packageName ?? "to18ml",
+    packageName: options.packageName ?? DEFAULT_PACKAGE_NAME,
     split: options.split ?? false,
   };
   const localeNames = Object.keys(locales).sort();

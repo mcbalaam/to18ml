@@ -1,6 +1,10 @@
 import { mkdir, readdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { basename, dirname, extname, join, resolve } from "node:path";
-import { generate, type GeneratedFiles } from "../codegen";
+import {
+  DEFAULT_PACKAGE_NAME,
+  generate,
+  type GeneratedFiles,
+} from "../codegen";
 import { runChecks } from "../check";
 import { compileLocale } from "../compile";
 import type { FlatMessages } from "../core/types";
@@ -8,7 +12,7 @@ import type { FlatMessages } from "../core/types";
 const DEFAULTS = {
   localesDir: "locales",
   generatedDir: "locales/generated",
-  packageName: "to18ml",
+  packageName: DEFAULT_PACKAGE_NAME,
 } as const;
 
 /** Shape of `to18ml.config.ts`. */

@@ -2,12 +2,12 @@
 
 to18ml is a framework-agnostic i18n library supporting pluralization and templates. Translations are written with **TOML**, but to18ml ships no parser to the frontend, instead baking strings to **TypeScript modules** at build time. Generates `.d.ts` to provide typing and snippets.
 
-The build-time CLI runs on **Bun** (it loads `.ts` config and uses Bun's TypeScript loader). The runtime (`to18ml` and `to18ml/adapters/react`) is plain TypeScript and has no Bun dependency.
+The build-time CLI runs on **Bun** (it loads `.ts` config and uses Bun's TypeScript loader). The runtime (`@mcbalaam/to18ml` and `@mcbalaam/to18ml/adapters/react`) is plain TypeScript and has no Bun dependency.
 
 ## Installing to18ml
 
 ```bash
-bun add to18ml
+bun add @mcbalaam/to18ml
 ```
 > React adapter needs `react` (optional peer).
 
@@ -15,14 +15,14 @@ bun add to18ml
 
 ```ts
 // to18ml.config.ts
-import { defineConfig } from "to18ml/config";
+import { defineConfig } from "@mcbalaam/to18ml/config";
 
 export default defineConfig({
   localesDir: "locales",       // default
   generatedDir: "locales/generated", // default
   defaultLocale: "ru-RU",      // required
   // fallback: { "ru-RU": ["ru"] }, // optional explicit chain override
-  // packageName: "to18ml",         // used in generated imports
+  // packageName: "@mcbalaam/to18ml", // used in generated imports
   // split: true,                   // emit per-namespace modules + loadNamespace
   // strictEmpty: false,            // empty strings => errors instead of warnings
 });
@@ -82,7 +82,7 @@ Run it before dev/build, e.g. via scripts:
 ### Using in a project
 
 ```ts
-import { createI18n } from "to18ml";
+import { createI18n } from "@mcbalaam/to18ml";
 import { messages, defaultLocale, msgs } from "./locales/generated";
 import type { Messages } from "./locales/generated";
 
@@ -135,7 +135,7 @@ i18n.t("master.welcome", { name: "Аня" }); // X args not accepted
 
 ```ts
 import { createElement } from "react";
-import { I18nProvider, useT, useLocale } from "to18ml/adapters/react";
+import { I18nProvider, useT, useLocale } from "@mcbalaam/to18ml/adapters/react";
 import { i18n } from "./i18n";
 import type { Messages } from "./locales/generated";
 
@@ -171,12 +171,12 @@ i18n.addMessages("ru-RU", await loadNamespace("ru-RU", "comments"));
 
 | import | contents |
 | --- | --- |
-| `to18ml` | runtime only (`createI18n`, types) — safe for the frontend |
-| `to18ml/config` | `defineConfig` + build types (dev-side) |
-| `to18ml/compile` | TOML → flat dict |
-| `to18ml/codegen` | schema / msgs / barrel generation |
-| `to18ml/check` | cross-locale checks |
-| `to18ml/adapters/react` | React hooks + provider |
+| `@mcbalaam/to18ml` | runtime only (`createI18n`, types) — safe for the frontend |
+| `@mcbalaam/to18ml/config` | `defineConfig` + build types (dev-side) |
+| `@mcbalaam/to18ml/compile` | TOML → flat dict |
+| `@mcbalaam/to18ml/codegen` | schema / msgs / barrel generation |
+| `@mcbalaam/to18ml/check` | cross-locale checks |
+| `@mcbalaam/to18ml/adapters/react` | React hooks + provider |
 
 ## Development
 

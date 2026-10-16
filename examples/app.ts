@@ -1,4 +1,4 @@
-import { createI18n } from "to18ml";
+import { createI18n } from "@mcbalaam/to18ml";
 import { defaultLocale, messages, msgs } from "./locales/generated";
 import type { Messages } from "./locales/generated";
 

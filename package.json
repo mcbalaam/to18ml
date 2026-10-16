@@ -1,7 +1,10 @@
 {
-  "name": "to18ml",
+  "name": "@mcbalaam/to18ml",
   "description": "Framework-agnostic i18n with TOML sources and typed TypeScript output.",
   "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
@@ -19,14 +22,29 @@
     "./adapters/react": "./src/adapters/react.ts"
   },
   "bin": {
-    "to18ml": "./src/cli/index.ts"
+    "to18ml": "src/cli/index.ts"
   },
   "files": [
     "src"
   ],
+  "sideEffects": false,
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "localization",
+    "l10n",
+    "translation",
+    "toml",
+    "typescript",
+    "bun",
+    "react",
+    "plural",
+    "codegen"
+  ],
   "scripts": {
     "test": "bun test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "bun run typecheck && bun test"
   },
   "dependencies": {
     "smol-toml": "^1.9.1"

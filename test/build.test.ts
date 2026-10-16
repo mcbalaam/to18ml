@@ -53,7 +53,7 @@ describe("resolveConfig", () => {
       generatedDir: "/proj/locales/generated",
       defaultLocale: "ru-RU",
       fallback: undefined,
-      packageName: "to18ml",
+      packageName: "@mcbalaam/to18ml",
       split: false,
       strictEmpty: false,
     });

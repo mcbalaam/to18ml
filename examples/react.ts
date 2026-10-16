@@ -1,6 +1,6 @@
 import { createElement } from "react";
-import { createI18n } from "to18ml";
-import { I18nProvider, useLocale, useT } from "to18ml/adapters/react";
+import { createI18n } from "@mcbalaam/to18ml";
+import { I18nProvider, useLocale, useT } from "@mcbalaam/to18ml/adapters/react";
 import { defaultLocale, messages } from "./locales/generated";
 import type { Messages } from "./locales/generated";
 

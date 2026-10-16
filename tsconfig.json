@@ -15,8 +15,8 @@
     "verbatimModuleSyntax": true,
     "noEmit": true,
     "paths": {
-      "to18ml": ["./src/index.ts"],
-      "to18ml/*": ["./src/*"]
+      "@mcbalaam/to18ml": ["./src/index.ts"],
+      "@mcbalaam/to18ml/*": ["./src/*"]
     },
 
     // Best practices
