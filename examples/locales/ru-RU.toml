@@ -1,0 +1,18 @@
+[master]
+welcome = "Добро пожаловать!"
+goodbye = "До свидания!"
+
+[comments]
+leave_a_comment = "Оставьте комментарий"
+sent = "Комментарий отправлен"
+greet = "Привет, {name}!"
+
+[cart.items.plural]
+one = "{count} товар"
+few = "{count} товара"
+many = "{count} товаров"
+other = "{count} товара"
+
+[settings.theme]
+dark = "Тёмная"
+light = "Светлая"

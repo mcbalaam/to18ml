@@ -1,0 +1,47 @@
+{
+  "name": "to18ml",
+  "description": "Framework-agnostic i18n with TOML sources and typed TypeScript output.",
+  "version": "0.1.0",
+  "license": "BSD-3-Clause",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./compile": "./src/compile/index.ts",
+    "./codegen": "./src/codegen/index.ts",
+    "./check": "./src/check/index.ts",
+    "./config": "./src/config.ts",
+    "./adapters/react": "./src/adapters/react.ts"
+  },
+  "bin": {
+    "to18ml": "./src/cli/index.ts"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "smol-toml": "^1.9.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "typescript": "^7",
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  }
+}

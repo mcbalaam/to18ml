@@ -1,0 +1,16 @@
+[master]
+welcome = "Welcome!"
+goodbye = "Goodbye!"
+
+[comments]
+leave_a_comment = "Leave a comment"
+sent = "Comment sent"
+greet = "Hi, {name}!"
+
+[cart.items.plural]
+one = "{count} item"
+other = "{count} items"
+
+[settings.theme]
+dark = "Dark"
+light = "Light"
