@@ -3,6 +3,10 @@
   "description": "Framework-agnostic i18n with TOML sources and typed TypeScript output.",
   "version": "0.1.0",
   "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcbalaam/to18ml.git"
+  },
   "module": "src/index.ts",
   "types": "src/index.ts",
   "type": "module",
