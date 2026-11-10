@@ -2,6 +2,11 @@
 
 to18ml is a framework-agnostic i18n library supporting pluralization and templates. Translations are written with **TOML**, but to18ml ships no parser to the frontend, instead baking strings to **TypeScript modules** at build time. Generates `.d.ts` to provide typing and snippets.
 
+<img width="371" height="117" alt="screenshot_2026-11-10_20-21-08" src="https://github.com/user-attachments/assets/be0302d0-127a-4abd-86ec-a5fdbb072ab3" />
+<br>
+<sub>to18ml using less than 5KB in the bundle; visualization made with rollup-plugin-visualizer for Vite.</sub>
+<br>
+<br>
 The build-time CLI runs on **Bun** (it loads `.ts` config and uses Bun's TypeScript loader). The runtime (`@mcbalaam/to18ml` and `@mcbalaam/to18ml/adapters/react`) is plain TypeScript and has no Bun dependency.
 
 ## Installing to18ml
