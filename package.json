@@ -1,7 +1,7 @@
 {
   "name": "@mcbalaam/to18ml",
   "description": "Framework-agnostic i18n with TOML sources and typed TypeScript output.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publishConfig": {
     "access": "public"
   },
