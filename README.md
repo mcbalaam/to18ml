@@ -135,6 +135,7 @@ i18n.t("master.welcome", { name: "Аня" }); // X args not accepted
 
 ```ts
 import { createElement } from "react";
+import { renderToString } from "react-dom/server";
 import { I18nProvider, useT, useLocale } from "@mcbalaam/to18ml/adapters/react";
 import { i18n } from "./i18n";
 import type { Messages } from "./locales/generated";
@@ -150,7 +151,38 @@ export const App = () =>
 ```
 
 The hooks subscribe through `i18n.subscribe` + `useSyncExternalStore`, so
-components re-render on `setLocale` and on lazily added messages, and SSR works.
+components re-render on `setLocale` and on lazily added messages. SSR works as
+long as the server and client start with the same locale and messages.
+
+### SSR: one instance per request
+
+`I18n` is mutable (`setLocale` and `addMessages`). On a server, create it inside
+the request/render function—never as a module-level singleton. Otherwise one
+request can change the locale seen by another request. Pass the same locale and
+message data to the client for its first render to avoid hydration mismatches:
+
+```tsx
+import { createElement } from "react";
+import { createI18n } from "@mcbalaam/to18ml";
+import { I18nProvider } from "@mcbalaam/to18ml/adapters/react";
+import { messages, defaultLocale } from "./locales/generated";
+import type { Messages } from "./locales/generated";
+import { App } from "./App";
+
+// Call once for each incoming request (and separately in the browser).
+export function renderRequest(locale: string) {
+  // Validate/normalize the request locale before this point; use defaultLocale
+  // when it is not supported.
+  const i18n = createI18n<Messages>({ locale, messages, defaultLocale });
+  return renderToString(
+    createElement(I18nProvider, { i18n }, createElement(App)),
+  );
+}
+```
+
+The locale should come from your framework's request data (for example, a
+validated route segment or cookie), not shared mutable state. Serialize the
+chosen locale to the page and initialize the browser's instance with it too.
 
 A namespace is a top-level table. Its name may contain only letters, digits, `_` and `-`.
 
