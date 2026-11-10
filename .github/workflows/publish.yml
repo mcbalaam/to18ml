@@ -40,6 +40,10 @@ jobs:
             exit 1
           fi
 
+      - name: Generate example translations
+        run: bun ../src/cli/index.ts gen
+        working-directory: examples
+
       - name: Typecheck
         run: bun run typecheck
 
