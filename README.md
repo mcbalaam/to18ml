@@ -217,6 +217,14 @@ bun test        # run the test suite
 bun run typecheck
 ```
 
+## Releasing
+
+The GitHub Actions publish workflow runs on tags matching `v*`. Update the
+version in `package.json`, push a matching tag (for example, `v0.2.0`), and
+configure the repository secret `NPM_TOKEN` with an npm publish token. The
+workflow verifies the tag/version match, runs typecheck and tests, then
+publishes the package to npm with provenance.
+
 ## License
 
 BSD-3-Clause. See [LICENSE](./LICENSE).
